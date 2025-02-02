@@ -2,8 +2,6 @@
 import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
 import Frame from '@/layout/Frame.vue'
-import boxImage from '@/assets/box.svg'
-import akad from '@/assets/Akad Nikah.png'
 // Define reactive state for animation
 const isMounted = ref(false);
 
@@ -13,7 +11,6 @@ const openLocation = () => {
     emits('openLocation')
 }
 
-// Trigger animation after component is mounted
 onMounted(() => {
     isMounted.value = true;
 });
@@ -23,24 +20,17 @@ onMounted(() => {
         <VContainer style="margin-top: 30vh;" class="d-flex flex-column align-center justify-center text-center" fluid>
             <div class="d-flex flex-column intro-text" :class="{ 'fade-in': isMounted }">
                 <VCard style="background-color: transparent;" :class="{ 'fade-in': isMounted }"
-                    class="d-flex flex-column align-center justify-center px-5" width="500" height="300px">
-                    <img width="200px" :src="akad" alt="topright" class="akad-text" :class="{ 'fade-in': isMounted }" />
+                    class="d-flex flex-column align-center justify-center px-5" width="500px" height="300px">
                     <span style="height: 60px;"></span>
 
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey;"
-                        class="font-weight-bold mt-5">Sunday,
-                        July 6th 2025
-                    </span>
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey"
-                        class="font-weight-bold mb-5">13.00 -
-                        16.00 WIB</span>
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold">
+                    <iframe width="400" height="450" style="border:0" loading="lazy" allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB41eq24ecdtYyNskjaaQBflyF1m-OUWuk
+    &q=Leviticus+11">
+                    </iframe>
+                    <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold mt-5">
                         Leviticus 11 Resto</span>
                     <span style="font-size: 12px; opacity: 1 !important; color: grey" class="font-weight-100">
                         Jl. Penyelesaian Tomang II No.1 Blok 11, Meruya Utara, Kec. Kembangan, Kota Jakarta Barat</span>
-
-                    <VBtn @click="openLocation" rounded="xl" color="#b58e5e" class="font-weight-bold text-none mt-2"
-                        :class="{ 'fade-in': isMounted }">Location</VBtn>
                 </VCard>
 
             </div>

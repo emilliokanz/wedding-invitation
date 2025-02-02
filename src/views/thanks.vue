@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
 import Frame from '@/layout/Frame.vue'
 import boxImage from '@/assets/box.svg'
-import name from '@/assets/Ail & Emil.png'
+import thanks from '@/assets/thanks.png'
 // Define reactive state for animation
 const isMounted = ref(false);
 
@@ -20,17 +20,17 @@ onMounted(() => {
 </script>
 <template>
     <Frame>
-        <VContainer style="margin-top: 20vh;" class="d-flex flex-column align-center justify-center text-center" fluid>
-            <div class="d-flex flex-column intro-text ml-6" :class="{ 'fade-in': isMounted }">
-                <span class="font-weight-bold">WE INVITE YOU </span>
-                <span class="font-weight-bold">TO CELEBRATE THE WEDDING OF</span>
-            </div>
-            <img width="300px" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
-            <img width="300px" :src="name" alt="topright" class="name-text" :class="{ 'fade-in': isMounted }" />
+        <VContainer style="margin-top: 35vh;" class="d-flex flex-column align-center justify-center text-center" fluid>
 
-            <VBtn @click="openInvitation" rounded="xl" color="#b58e5e" class="invitation-btn font-weight-bold text-none"
-                :class="{ 'fade-in': isMounted }">Open
-                Invitation</VBtn>
+            <img width="300px" class="box-image" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
+            <img width="300px" :src="thanks" alt="topright" class="name-text" :class="{ 'fade-in': isMounted }" />
+            <div class="d-flex flex-column intro-text" style="max-width: 250px;" :class="{ 'fade-in': isMounted }">
+                <span class="">Dengan penuh rasa syukur dan bahagia, kami mengucapkan terima kasih atas doa, kasih, dan
+                    kehadiran Anda dalam momen istimewa kami. Semoga kebahagiaan yang kami rasakan selalu
+                    menyertai Anda. Sampai jumpa di hari bahagia kami! </span>
+            </div>
+
+
         </VContainer>
     </Frame>
 </template>
@@ -38,13 +38,13 @@ onMounted(() => {
 <style scoped>
 .name-text {
     position: absolute;
+    margin-top: 35vh;
 }
 
-.invitation-btn {
-    z-index: 99999;
-    margin-top: 25px;
-
+.box-image {
+    position: absolute;
 }
+
 
 .fade-in {
     animation: fadeInMove 1s ease-in-out forwards;
