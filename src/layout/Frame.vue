@@ -16,44 +16,44 @@ onMounted(() => {
 <template>
   <slot></slot>
   <div class="flex justify-center">
-    <img
-      width="300px"
-      :src="topRight"
-      alt="topright"
-      class="top-right-image"
-      :class="{ 'fade-in': isMounted }"
-    />
-    <img
-      width="300px"
-      :src="bottomLeft"
-      alt="bottomLeft"
-      class="bottom-left-image"
-      :class="{ 'fade-in': isMounted }"
-    />
+    <img width="300px" :src="topRight" alt="topright" class="top-right-image" :class="{ 'fade-in': isMounted }" />
+    <img width="300px" :src="bottomLeft" alt="bottomLeft" class="bottom-left-image" :class="{ 'fade-in': isMounted }" />
   </div>
 </template>
 
-<style>
+<style scoped>
 .top-right-image {
-  position: absolute; /* Position the image absolutely within the container */
-  top: 0; /* Align to the top */
-  right: 0; /* Align to the right */
+  position: absolute;
+  /* Position the image absolutely within the container */
+  top: 0;
+  /* Align to the top */
+  right: 0;
+  /* Align to the right */
   margin-right: -60px;
   margin-top: -40px;
-  width: 400px; /* Set the width */
-  opacity: 0; /* Start with 0 opacity */
-  transform: translate(50px, 50px); /* Initial position offset */
+  width: 400px;
+  /* Set the width */
+  opacity: 0;
+  /* Start with 0 opacity */
+  transform: translate(50px, 50px);
+  /* Initial position offset */
 }
 
 .bottom-left-image {
-  position: absolute; /* Position the image absolutely within the container */
-  bottom: 0; /* Align to the bottom */
-  left: 0; /* Align to the left */
-  width: 400px; /* Set the width */
+  position: absolute;
+  /* Position the image absolutely within the container */
+  bottom: 0;
+  /* Align to the bottom */
+  left: 0;
+  /* Align to the left */
+  width: 400px;
+  /* Set the width */
   margin-left: -20px;
   margin-bottom: 40px;
-  opacity: 0; /* Start with 0 opacity */
-  transform: translate(-50px, -50px); /* Initial position offset */
+  opacity: 0;
+  /* Start with 0 opacity */
+  transform: translate(-50px, -50px);
+  /* Initial position offset */
 }
 
 /* Fade-in and move animation */
@@ -64,11 +64,14 @@ onMounted(() => {
 @keyframes fadeInMove {
   from {
     opacity: 0;
-    transform: translate(50px, -20px); /* Initial position for top-right image */
+    transform: translate(50px, -20px);
+    /* Initial position for top-right image */
   }
+
   to {
     opacity: 1;
-    transform: translate(0, 0); /* Move to final position */
+    transform: translate(0, 0);
+    /* Move to final position */
   }
 }
 
@@ -79,11 +82,14 @@ onMounted(() => {
 @keyframes fadeInMoveBottom {
   from {
     opacity: 0;
-    transform: translate(-50px, 20px); /* Initial position for bottom-left image */
+    transform: translate(-50px, 20px);
+    /* Initial position for bottom-left image */
   }
+
   to {
     opacity: 1;
-    transform: translate(0, 0); /* Move to final position */
+    transform: translate(0, 0);
+    /* Move to final position */
   }
 }
 </style>

@@ -6,8 +6,16 @@ import 'vuetify/styles' // Import Vuetify's base styles
 import { createVuetify } from 'vuetify' // Import createVuetify from Vuetify
 import * as components from 'vuetify/components' // Import Vuetify components
 import * as directives from 'vuetify/directives' // Import Vuetify directives
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
 const vuetify = createVuetify({
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
+    },
+  },
   components, // Register Vuetify components
   directives, // Register Vuetify directives
 })
