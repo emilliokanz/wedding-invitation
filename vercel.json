@@ -12,20 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
-    }
-  ],
-  "headers": [
-    {
-      "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    },
-    {
-      "source": "/(.*).(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|otf|eot|ttc|mp4|webm|wav|mp3|m4a|aac|oga)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "dest": "/index.html"
     }
   ]
 }
