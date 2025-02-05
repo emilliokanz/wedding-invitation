@@ -1,12 +1,28 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import App from './App.vue'
-import 'vuetify/styles' // Import Vuetify's base styles
-import { createVuetify } from 'vuetify' // Import createVuetify from Vuetify
-import * as components from 'vuetify/components' // Import Vuetify components
-import * as directives from 'vuetify/directives' // Import Vuetify directives
+import { createRouter, createWebHistory } from 'vue-router'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+import 'vuetify/styles'
+import App from './App.vue'
+import Index from './pages/Index.vue'
+
+// Define routes correctly
+const routes = [
+  {
+    path: '/:param',
+    component: Index, // Use direct reference instead of a function
+  },
+]
+
+// Create router instance
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
 
 const vuetify = createVuetify({
   icons: {
@@ -16,11 +32,12 @@ const vuetify = createVuetify({
       mdi,
     },
   },
-  components, // Register Vuetify components
-  directives, // Register Vuetify directives
+  components,
+  directives,
 })
 
 const app = createApp(App)
 
-app.use(vuetify) // Use Vuetify
+app.use(vuetify)
+app.use(router)
 app.mount('#app')

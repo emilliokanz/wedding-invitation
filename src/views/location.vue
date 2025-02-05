@@ -1,48 +1,61 @@
 <script setup>
-import { onMounted, ref } from 'vue'; // Import onMounted and ref
+import Frame from '@/layout/Frame.vue';
+import { computed, onMounted, ref } from 'vue'; // Import onMounted and ref
+import { useDisplay } from 'vuetify';
 
-import Frame from '@/layout/Frame.vue'
 // Define reactive state for animation
 const isMounted = ref(false);
 
-const emits = defineEmits(['openLocation'])
+const { smAndDown, mdAndUp } = useDisplay();
 
-const openLocation = () => {
-    emits('openLocation')
-}
+const containerWidth = computed(() => {
+    return smAndDown.value ? '300px' : mdAndUp.value ? '500px' : '0';
+});
 
 onMounted(() => {
     isMounted.value = true;
 });
 </script>
+
 <template>
     <Frame>
-        <VContainer style="margin-top: 30vh;" class="d-flex flex-column align-center justify-center text-center" fluid>
-            <div class="d-flex flex-column intro-text" :class="{ 'fade-in': isMounted }">
-                <VCard style="background-color: transparent;" :class="{ 'fade-in': isMounted }"
-                    class="d-flex flex-column align-center justify-center px-5" width="500px" height="300px">
-                    <span style="height: 60px;"></span>
+        <VContainer class=" full-height d-flex flex-column align-center justify-center text-center" fluid>
+            <VCard style="background-color: transparent; z-index: 99999;" :class="{ 'fade-in': isMounted }"
+                class="d-flex flex-column align-center justify-center px-5" height="300px">
+                <span style="height: 60px;"></span>
 
-                    <iframe width="400" height="450" style="border:0" loading="lazy" allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB41eq24ecdtYyNskjaaQBflyF1m-OUWuk
-    &q=Leviticus+11">
-                    </iframe>
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold mt-5">
-                        Leviticus 11 Resto</span>
-                    <span style="font-size: 12px; opacity: 1 !important; color: grey" class="font-weight-100">
-                        Jl. Penyelesaian Tomang II No.1 Blok 11, Meruya Utara, Kec. Kembangan, Kota Jakarta Barat</span>
-                </VCard>
+                <!-- Ensure iframe has the highest z-index -->
+                <iframe :width="containerWidth" height="450" style="border:0;position: relative;" loading="lazy"
+                    allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB41eq24ecdtYyNskjaaQBflyF1m-OUWuk&q=Leviticus+11">
+                </iframe>
 
-            </div>
+                <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold mt-5">
+                    Leviticus 11 Resto
+                </span>
+                <span style="font-size: 12px; opacity: 1 !important; color: grey; z-index: 99999 !important"
+                    class="font-weight-100">
+                    Jl. Penyelesaian Tomang II No.1 Blok 11, Meruya Utara, Kec. Kembangan, Kota Jakarta Barat
+                </span>
+            </VCard>
         </VContainer>
     </Frame>
 </template>
 
 <style scoped>
+.full-height {
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+}
+
 .box-image {
     position: absolute;
     margin-top: 30vh;
-
 }
 
 .intro-text {
@@ -58,7 +71,6 @@ onMounted(() => {
 .invitation-btn {
     position: absolute;
     margin-top: 80vh;
-
 }
 
 .fade-in {

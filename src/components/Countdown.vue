@@ -1,14 +1,14 @@
 <template>
-    <v-row class="text-h6">
-                    <v-col cols="3" v-for="(time, key) in countdown" :key="key">
-                        <div class="text-h5 font-weight-bold">{{ time }}</div>
-                        <div style="width: fit-content" class="text-caption">{{ key }}</div>
-                    </v-col>
-                </v-row>
+    <div class="countdown-container text-h6">
+        <div class="countdown-item" v-for="(time, key) in countdown" :key="key">
+            <div class="text-h5 font-weight-bold">{{ time }}</div>
+            <div style="width: fit-content" class="text-caption">{{ key }}</div>
+        </div>
+    </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 // Target date: July 6, 2025
 const targetDate = new Date('2025-07-06T00:00:00').getTime();
@@ -32,24 +32,29 @@ const updateCountdown = () => {
         countdown.value.minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         countdown.value.seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
     } else {
-        // If the countdown is over, set all values to 0
-        countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        countdown.value.days = 0;
+        countdown.value.hours = 0;
+        countdown.value.minutes = 0;
+        countdown.value.seconds = 0;
     }
 };
 
-// Start the countdown timer
-let timer;
+// Set interval to update countdown every second
 onMounted(() => {
-    updateCountdown(); // Initial update
-    timer = setInterval(updateCountdown, 1000); // Update every second
-});
-
-// Clear the timer when the component is unmounted
-onUnmounted(() => {
-    clearInterval(timer);
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    onUnmounted(() => clearInterval(interval));
 });
 </script>
 
 <style scoped>
+.countdown-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.countdown-item {
+    text-align: center;
+}
 </style>

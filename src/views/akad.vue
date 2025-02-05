@@ -1,17 +1,25 @@
 <script setup>
-import { onMounted, ref } from 'vue'; // Import onMounted and ref
+import { computed, onMounted, ref } from 'vue'; // Import onMounted and ref
 
-import Frame from '@/layout/Frame.vue'
-import boxImage from '@/assets/box.svg'
-import akad from '@/assets/Akad Nikah.png'
+import akad from '@/assets/Akad Nikah.png';
+import Frame from '@/layout/Frame.vue';
+import { useDisplay } from 'vuetify';
 // Define reactive state for animation
 const isMounted = ref(false);
+
 
 const emits = defineEmits(['openLocation'])
 
 const openLocation = () => {
     emits('openLocation')
 }
+
+const { smAndDown, mdAndUp } = useDisplay()
+
+
+const containerWidth = computed(() => {
+    return smAndDown.value ? '300px' : mdAndUp.value ? '500px' : '0';
+});
 
 // Trigger animation after component is mounted
 onMounted(() => {
@@ -20,30 +28,27 @@ onMounted(() => {
 </script>
 <template>
     <Frame>
-        <VContainer style="margin-top: 30vh;" class="d-flex flex-column align-center justify-center text-center" fluid>
-            <div class="d-flex flex-column intro-text" :class="{ 'fade-in': isMounted }">
-                <VCard style="background-color: transparent;" :class="{ 'fade-in': isMounted }"
-                    class="d-flex flex-column align-center justify-center px-5" width="500" height="300px">
-                    <img width="200px" :src="akad" alt="topright" class="akad-text" :class="{ 'fade-in': isMounted }" />
-                    <span style="height: 60px;"></span>
+        <VContainer class="d-flex flex-column align-center justify-center text-center" fluid>
+            <VCard style="background-color: transparent; z-index: 9999;" :class="{ 'fade-in': isMounted }"
+                class="d-flex flex-column align-center justify-center px-5" height="300px">
+                <img width="200px" :src="akad" alt="topright" class="akad-text" :class="{ 'fade-in': isMounted }" />
+                <span style="height: 60px;"></span>
 
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey;"
-                        class="font-weight-bold mt-5">Sunday,
-                        July 6th 2025
-                    </span>
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey"
-                        class="font-weight-bold mb-5">13.00 -
-                        16.00 WIB</span>
-                    <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold">
-                        Leviticus 11 Resto</span>
-                    <span style="font-size: 12px; opacity: 1 !important; color: grey" class="font-weight-100">
-                        Jl. Penyelesaian Tomang II No.1 Blok 11, Meruya Utara, Kec. Kembangan, Kota Jakarta Barat</span>
+                <span style="font-size: 16px; opacity: 1 !important; color: grey;" class="font-weight-bold mt-5">Sunday,
+                    July 6th 2025
+                </span>
+                <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold mb-5">13.00 -
+                    16.00 WIB</span>
+                <span style="font-size: 16px; opacity: 1 !important; color: grey" class="font-weight-bold">
+                    Leviticus 11 Resto</span>
+                <span style="font-size: 12px; opacity: 1 !important; color: grey" class="font-weight-100"
+                    :style="{ 'max-width': containerWidth }">
+                    Jl. Penyelesaian Tomang II No.1 Blok 11, Meruya Utara, Kec. Kembangan, Kota Jakarta Barat</span>
 
-                    <VBtn @click="openLocation" rounded="xl" color="#b58e5e" class="font-weight-bold text-none mt-2"
-                        :class="{ 'fade-in': isMounted }">Location</VBtn>
-                </VCard>
+                <VBtn @click="openLocation" rounded="xl" color="#b58e5e" class="font-weight-bold text-none mt-2"
+                    :class="{ 'fade-in': isMounted }">Location</VBtn>
+            </VCard>
 
-            </div>
         </VContainer>
     </Frame>
 </template>

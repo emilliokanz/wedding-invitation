@@ -1,11 +1,11 @@
 <script setup>
 import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
-import Frame from '@/layout/Frame.vue'
-import boxImage from '@/assets/box.svg'
-import menghitung from '@/assets/menghitung.png'
+import boxImage from '@/assets/box.svg';
+import menghitung from '@/assets/menghitung.png';
+import Frame from '@/layout/Frame.vue';
 
-import Countdown from '@/components/Countdown.vue'
+import Countdown from '@/components/Countdown.vue';
 // Define reactive state for animation
 const isMounted = ref(false);
 
@@ -22,47 +22,50 @@ onMounted(() => {
 </script>
 <template>
     <Frame>
-        <VContainer style="margin-top: 36vh;" class="d-flex flex-column align-center justify-center text-center" fluid>
-            <div class="d-flex flex-column  intro-text " :class="{ 'fade-in': isMounted }">
-                <img width="200px" :src="menghitung" alt="topright" class="akad-text"
+        <VContainer class="full-height d-flex flex-column align-center text-center">
+            <div style="z-index: 9999; height: 350px;" class="d-flex flex-column  intro-text "
+                :class="{ 'fade-in': isMounted }">
+                <img width="200px" :src="menghitung" alt="topright" class="akad-text mb-5"
                     :class="{ 'fade-in': isMounted }" />
 
-                <div class="mb-10">
+                <Countdown></Countdown>
 
-                    <Countdown></Countdown>
-                </div>
 
-                <span style="font-size: 16px; color: grey" class="font-weight-100 mt-10">Kirim ucapan untuk
+                <span style="font-size: 16px; color: grey" class="font-weight-100 mt-5">Kirim ucapan untuk
                     mempelai</span>
                 <span style="font-size: 16px; color: grey" class="font-weight-100">dan konfirmasi kehadiran</span>
                 <VBtn @click="openInvitation" rounded="xl" color="#b58e5e"
-                    class="invitation-btn font-weight-bold text-none" :class="{ 'fade-in': isMounted }">Kirim Ucapan
+                    class="invitation-btn font-weight-bold text-none" :class="{ 'fade-in': isMounted }">Kirim
+                    Ucapan
                     RSVP</VBtn>
             </div>
             <img width="300px" class="box-image" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
-
-
         </VContainer>
     </Frame>
 </template>
 
 <style scoped>
+.full-height {
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+}
+
 .box-image {
     position: absolute;
 }
 
 .akad-text {
-    position: absolute;
-    margin-top: -8vh;
-    margin-left: 15px;
+    margin-inline: auto;
 }
 
 .invitation-btn {
-    margin-left: 25px;
-
-    position: absolute;
+    margin-top: 100px;
     z-index: 99999;
-    margin-top: 24vh;
 
 }
 
@@ -74,7 +77,6 @@ onMounted(() => {
     from {
         opacity: 0;
         transform: translate(0, 50px);
-        /* Initial position for top-right image */
     }
 
     to {

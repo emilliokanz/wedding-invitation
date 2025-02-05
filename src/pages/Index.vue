@@ -1,16 +1,16 @@
 <script setup>
 import background from '@/assets/background-2.svg';
 import { onMounted, ref } from 'vue'; // Import onMounted and ref
-import akad from './akad.vue';
-import location from './location.vue';
-import opening from './opening.vue';
-import rsvp from './rsvp.vue';
-import thanks from './thanks.vue';
-import virtualGift from './virtual-gift.vue';
+import akad from '@/views/akad.vue';
+import location from '@/views/location.vue';
+import opening from '@/views/opening.vue';
+import rsvp from '@/views/rsvp.vue';
+import thanks from '@/views/thanks.vue';
+import virtualGift from '@/views/virtual-gift.vue';
 
 
 
-import invitation from './invitation.vue';
+import invitation from '@/views/invitation.vue';
 
 import { mdiCharity, mdiClockTimeTwo, mdiEmailNewsletter, mdiGiftOutline, mdiMapMarker, mdiMessageTextOutline, mdiTextBoxOutline } from '@mdi/js';
 
