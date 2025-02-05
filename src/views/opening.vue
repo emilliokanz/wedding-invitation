@@ -68,8 +68,8 @@ const invitee = computed(() => {
 }
 
 .invitation-btn {
-    z-index: 99999;
-    margin-top: 25px;
+    z-index: 999;
+    margin-top: 10px;
 }
 
 .fade-in {
