@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 <template>
     <Frame>
-        <VContainer class="d-flex flex-column align-center justify-center text-center" fluid>
+        <VContainer class="d-flex full-height flex-column align-center justify-center text-center" fluid>
             <VCard style="background-color: transparent; z-index: 9999;" :class="{ 'fade-in': isMounted }"
                 class="d-flex flex-column align-center justify-center px-5" height="300px">
                 <img width="200px" :src="akad" alt="topright" class="akad-text" :class="{ 'fade-in': isMounted }" />
@@ -54,6 +54,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.full-height {
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+}
+
 .box-image {
     position: absolute;
     margin-top: 30vh;
