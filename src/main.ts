@@ -16,6 +16,10 @@ const routes = [
     path: '/:param',
     component: Index, // Use direct reference instead of a function
   },
+  {
+    path: '/',
+    component: Index, // Use direct reference instead of a function
+  },
 ]
 
 // Create router instance
