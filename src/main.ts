@@ -1,5 +1,6 @@
 import './assets/main.css'
 
+import Index from '@/pages/Index.vue' // Add explicit import for Index.vue
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createVuetify } from 'vuetify'
@@ -8,8 +9,6 @@ import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import 'vuetify/styles'
 import App from './App.vue'
-// @ts-ignore
-import Index from './pages/Index.vue'
 
 // Define routes correctly
 const routes = [
