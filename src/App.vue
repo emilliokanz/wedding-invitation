@@ -1,11 +1,10 @@
 <script setup lang="ts">
 //@ts-ignore
-import Index from '@/views/index.vue'
 
 </script>
 
 <template>
   <v-app>
-    <Index></Index>
+    <router-view />
   </v-app>
 </template>
