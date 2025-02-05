@@ -13,7 +13,7 @@ import App from './App.vue'
 // Define routes correctly
 const routes = [
   {
-    path: '/invitation/:param',
+    path: '/:param',
     component: Index, // Use direct reference instead of a function
   },
 ]
