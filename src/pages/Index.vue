@@ -15,6 +15,7 @@ import { mdiCharity, mdiClockTimeTwo, mdiEmailNewsletter, mdiGiftOutline, mdiMap
 const isMounted = ref(false);
 const tabs = ref(0);
 const isOpen = ref(false);
+const audio = ref(null);
 
 const tabsHeader = [
     { icon: mdiEmailNewsletter, title: "Opening", component: opening },
@@ -37,9 +38,9 @@ const handleOpenLocation = () => {
 
 // Handle swipe left and right
 const handleSwipe = (direction) => {
-    if (direction === 'down' && tabs.value < tabsHeader.length - 1 && isOpen.value) {
+    if (direction === 'up' && tabs.value < tabsHeader.length - 1 && isOpen.value) {
         tabs.value += 1; // Swipe left to go to the next tab
-    } else if (direction === 'up' && tabs.value > 0) {
+    } else if (direction === 'down' && tabs.value > 0) {
         tabs.value -= 1; // Swipe right to go to the previous tab
     }
 };
@@ -47,14 +48,20 @@ const handleSwipe = (direction) => {
 // Trigger animation after component is mounted
 onMounted(() => {
     isMounted.value = true;
+
+    document.addEventListener('click', () => {
+        if (audio.value) {
+            audio.value.play().catch(error => console.log("Autoplay blocked:", error));
+        }
+    });
 });
 </script>
 
 <template>
     <div class="page-container">
         <VCard v-touch="{
-            left: () => handleSwipe('left'),
-            right: () => handleSwipe('right')
+            up: () => handleSwipe('up'),
+            down: () => handleSwipe('down')
         }" :image="background" class="flex-column align-center justify-center text-center phone-container"
             width="100vw">
             <audio ref="audio" loop autoplay>
