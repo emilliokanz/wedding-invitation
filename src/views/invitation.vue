@@ -46,7 +46,7 @@ const containerWidth = computed(() => {
                 <img :width="containerWidth" :src="ailsa" alt="topright" class="akad-text mx-auto"
                     :class="{ 'fade-in': isMounted }" />
 
-                <span style="font-size: 14px; color: grey" class="my-1 font-weight-bold">Putri Bpk. Bakri
+                <span style="font-size: 14px; color: grey" class="my-1 font-weight-bold">Putri Mayor (Purn) Bakri
                     Norman</span>
                 <span style="font-size: 14px; color: grey" class="my-1 font-weight-bold">Ibu Hertha Duma Estina
                     Sinaga</span>

@@ -1,13 +1,13 @@
 <script setup>
 import background from '@/assets/background-2.svg';
-import { onMounted, ref } from 'vue'; // Import onMounted and ref
 import akad from '@/views/akad.vue';
+import invitation from '@/views/invitation.vue';
 import location from '@/views/location.vue';
 import opening from '@/views/opening.vue';
 import rsvp from '@/views/rsvp.vue';
 import thanks from '@/views/thanks.vue';
 import virtualGift from '@/views/virtual-gift.vue';
-import invitation from '@/views/invitation.vue';
+import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
 import { mdiCharity, mdiClockTimeTwo, mdiEmailNewsletter, mdiGiftOutline, mdiMapMarker, mdiMessageTextOutline, mdiTextBoxOutline } from '@mdi/js';
 
@@ -37,9 +37,9 @@ const handleOpenLocation = () => {
 
 // Handle swipe left and right
 const handleSwipe = (direction) => {
-    if (direction === 'left' && tabs.value < tabsHeader.length - 1 && isOpen.value) {
+    if (direction === 'down' && tabs.value < tabsHeader.length - 1 && isOpen.value) {
         tabs.value += 1; // Swipe left to go to the next tab
-    } else if (direction === 'right' && tabs.value > 0) {
+    } else if (direction === 'up' && tabs.value > 0) {
         tabs.value -= 1; // Swipe right to go to the previous tab
     }
 };
@@ -47,32 +47,43 @@ const handleSwipe = (direction) => {
 // Trigger animation after component is mounted
 onMounted(() => {
     isMounted.value = true;
+
+    document.addEventListener('click', () => {
+        if (audio.value) {
+            audio.value.play().catch(error => console.log("Autoplay blocked:", error));
+        }
+    });
 });
 </script>
 
 <template>
     <div class="page-container">
         <VCard v-touch="{
-                    left: () => handleSwipe('left'),
-                    right: () => handleSwipe('right')
-                }" :image="background" class="flex-column align-center justify-center text-center phone-container"
+            left: () => handleSwipe('left'),
+            right: () => handleSwipe('right')
+        }" :image="background" class="flex-column align-center justify-center text-center phone-container"
             width="100vw">
+            <audio ref="audio" loop autoplay>
+                <source
+                    src="https://dn720307.ca.archive.org/0/items/elvis-presley-cant-help-falling-in-love-audio_202106/elvis-presley-cant-help-falling-in-love-audio.mp3"
+                    type="audio/mpeg">
+            </audio>
             <!-- Swipe detection using v-touch -->
-                <v-tabs v-if="isOpen" style="z-index: 9999; color: white; background-color: #b58e5e; font-weight: bold;"
-                    class="bottom-tabs" v-model="tabs" grow>
-                    <v-tab v-for="(tab, index) in tabsHeader" :key="index" :value="index">
-                        <div class="d-flex flex-column align-center justify-center text-center">
-                            <VIcon size="x-large" class="mb-1" :icon="tab.icon"
-                                style="font-size: 27px; opacity: 1 !important;" />
-                            <span class="font-weight-bold text-none" style="font-size: 12px">{{ tab.title }}</span>
-                        </div>
-                    </v-tab>
-                </v-tabs>
+            <v-tabs v-if="isOpen" style="z-index: 9999; color: white; background-color: #b58e5e; font-weight: bold;"
+                class="bottom-tabs" v-model="tabs" grow>
+                <v-tab v-for="(tab, index) in tabsHeader" :key="index" :value="index">
+                    <div class="d-flex flex-column align-center justify-center text-center">
+                        <VIcon size="x-large" class="mb-1" :icon="tab.icon"
+                            style="font-size: 27px; opacity: 1 !important;" />
+                        <span class="font-weight-bold text-none" style="font-size: 12px">{{ tab.title }}</span>
+                    </div>
+                </v-tab>
+            </v-tabs>
 
-                <div  v-for="(tab, index) in tabsHeader" :key="index" :value="index">
-                    <component @open-location="handleOpenLocation" @is-open="handleIsOpen" v-if="tabs == index"
-                        :is="tab.component" />
-                </div>
+            <div v-for="(tab, index) in tabsHeader" :key="index" :value="index">
+                <component @open-location="handleOpenLocation" @is-open="handleIsOpen" v-if="tabs == index"
+                    :is="tab.component" />
+            </div>
         </VCard>
     </div>
 </template>
@@ -106,6 +117,7 @@ onMounted(() => {
 .swipe-area {
     width: 100%;
     height: 100%;
-    touch-action: pan-y; /* Enable vertical scrolling while allowing horizontal swipe */
+    touch-action: pan-y;
+    /* Enable vertical scrolling while allowing horizontal swipe */
 }
 </style>
