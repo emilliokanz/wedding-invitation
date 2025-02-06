@@ -47,12 +47,6 @@ const handleSwipe = (direction) => {
 // Trigger animation after component is mounted
 onMounted(() => {
     isMounted.value = true;
-
-    document.addEventListener('click', () => {
-        if (audio.value) {
-            audio.value.play().catch(error => console.log("Autoplay blocked:", error));
-        }
-    });
 });
 </script>
 
