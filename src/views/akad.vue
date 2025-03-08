@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'; // Import onMounted and ref
 
 import akad from '@/assets/Akad Nikah.png';
+import photo from '@/assets/couple.png'
 import Frame from '@/layout/Frame.vue';
 import { useDisplay } from 'vuetify';
 // Define reactive state for animation
@@ -30,9 +31,9 @@ onMounted(() => {
     <Frame>
         <VContainer class="d-flex full-height flex-column align-center justify-center text-center" fluid>
             <VCard style="background-color: transparent; z-index: 9999;" :class="{ 'fade-in': isMounted }"
-                class="d-flex flex-column align-center justify-center px-5" height="300px">
+                class="d-flex flex-column align-center justify-center px-5 py-5" >
+                <img width="200px" :src="photo" alt="couple" class="mb-2" :class="{ 'fade-in': isMounted }" />
                 <img width="200px" :src="akad" alt="topright" class="akad-text" :class="{ 'fade-in': isMounted }" />
-                <span style="height: 60px;"></span>
 
                 <span style="font-size: 16px; opacity: 1 !important; color: grey;" class="font-weight-bold mt-5">Sunday,
                     July 6th 2025
@@ -64,21 +65,6 @@ onMounted(() => {
     /* Center horizontally */
 }
 
-.box-image {
-    position: absolute;
-    margin-top: 30vh;
-
-}
-
-.intro-text {
-    position: absolute;
-    margin-top: 30vh;
-}
-
-.akad-text {
-    position: absolute;
-    margin-top: -20vh;
-}
 
 .invitation-btn {
     position: absolute;

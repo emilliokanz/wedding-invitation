@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'; // Import onMounted and ref
 import boxImage from '@/assets/box.svg';
 import menghitung from '@/assets/menghitung.png';
 import Frame from '@/layout/Frame.vue';
+import photo from '@/assets/photo-corner.png'
 
 import Countdown from '@/components/Countdown.vue';
 // Define reactive state for animation
@@ -23,10 +24,10 @@ onMounted(() => {
 <template>
     <Frame>
         <VContainer class="full-height d-flex flex-column align-center text-center">
-            <div style="z-index: 9999; height: 350px;" class="d-flex flex-column  intro-text "
+            <div style="z-index: 9999;" class="d-flex flex-column  intro-text "
                 :class="{ 'fade-in': isMounted }">
-                <img width="200px" :src="menghitung" alt="topright" class="akad-text mb-5"
-                    :class="{ 'fade-in': isMounted }" />
+                <img width="200px" :src="menghitung" alt="topright" class="akad-text mb-10"
+                    :class="{ 'fade-in': isMounted }" />  
 
                 <Countdown></Countdown>
 
@@ -39,6 +40,8 @@ onMounted(() => {
                     Ucapan
                     RSVP</VBtn>
             </div>
+            <img width="150px" class="photo-corner" :src="photo" alt="topright"
+            :class="{ 'fade-in': isMounted }" /> 
             <img width="300px" class="box-image" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
         </VContainer>
     </Frame>
@@ -59,12 +62,16 @@ onMounted(() => {
     position: absolute;
 }
 
-.akad-text {
-    margin-inline: auto;
+.photo-corner {
+    margin-top: 20%;
+    margin-left: -25%;
+    position: absolute;
+    rotate: -10deg;
 }
 
+
 .invitation-btn {
-    margin-top: 100px;
+    margin-top: 20px;
     z-index: 99999;
 
 }

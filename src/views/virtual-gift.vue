@@ -34,7 +34,7 @@ onMounted(() => {
                     melalui</span>
                 <!-- <h2 style="color: #b58e5e">Ailsa Blenda Chaesar Norman</h2> -->
                 <img width="200px" class="bca-text" :src="bca" alt="bca" :class="{ 'fade-in': isMounted }" />
-                <span style="font-size: 14px; color: black">7772203945 a/n Ailsa Blenda
+                <span style="font-size: 14px; color: black">8320547131 a/n Ailsa Blenda
                     Chesar</span>
                 <span style="font-size: 14px; color: black">7772203945 a/n Emillio Kanz</span>
                 <span style="font-size: 14px; color: black" class="my-1">Atau</span>
@@ -44,7 +44,7 @@ onMounted(() => {
                 </span>
 
                 <span style="font-size: 14px; color: black; max-width: 400px;">
-                    Apartemen Reverview.
+                    Apartemen Riverview.
                     Jl. Inspeksi Kalimalang No.1, Wangunharja, Kec. Cikarang Utara, Kabupaten Bekasi, Jawa Barat 17530
                 </span>
                 <span style="font-size: 14px; color: black"> Tlp. 0822-1568-7899</span>
