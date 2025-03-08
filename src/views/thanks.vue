@@ -34,7 +34,7 @@ onMounted(() => {
             </div>
 
             <img width="300px" :src="thanks" alt="topright" class="name-text" :class="{ 'fade-in': isMounted }" />
-            <img width="150px" :src="photo" alt="couple-photo" class="name-text" :class="{ 'fade-in': isMounted }" />
+            <img width="160px" style="z-index: 99999999;" :src="photo" alt="couple-photo" class="name-text" :class="{ 'fade-in': isMounted }" />
 
         </VContainer>
     </Frame>

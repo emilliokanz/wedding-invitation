@@ -7,8 +7,11 @@ import Frame from '@/layout/Frame.vue';
 import photo from '@/assets/photo-corner.png'
 
 import Countdown from '@/components/Countdown.vue';
+import { useDisplay } from 'vuetify';
 // Define reactive state for animation
 const isMounted = ref(false);
+
+const {mobile} = useDisplay()
 
 const emits = defineEmits(['isOpen'])
 
@@ -39,9 +42,11 @@ onMounted(() => {
                     class="invitation-btn font-weight-bold text-none" :class="{ 'fade-in': isMounted }">Kirim
                     Ucapan
                     RSVP</VBtn>
-                    <img width="150px" class="photo-corner" :src="photo" alt="topright"
+                <img v-if="!mobile" width="150px" class="photo-corner" :src="photo" alt="topright"
                     :class="{ 'fade-in': isMounted }" /> 
             </div>
+            <img v-if="mobile" width="210px" class="photo-corner-mobile" :src="photo" alt="topright"
+                    :class="{ 'fade-in': isMounted }" /> 
   
             <img width="300px" class="box-image" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
         </VContainer>
@@ -64,11 +69,19 @@ onMounted(() => {
 }
 
 .photo-corner {
-    z-index: 99999999;
+    z-index: 1;
     bottom: -35%;
     left: -60%;
     position: absolute;
     rotate: -10deg;
+}
+
+.photo-corner-mobile {
+    z-index: 999;
+    bottom:0;
+    margin-bottom: 40px;
+    left: 0;
+    position: absolute;
 }
 
 
