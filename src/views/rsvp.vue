@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 <template>
     <Frame>
-        <VContainer class="full-height d-flex flex-column align-center text-center">
+        <VContainer class="full-height d-flex flex-column align-center text-center" style="position: relative;">
             <div style="z-index: 9999;" class="d-flex flex-column  intro-text "
                 :class="{ 'fade-in': isMounted }">
                 <img width="200px" :src="menghitung" alt="topright" class="akad-text mb-10"
@@ -39,9 +39,10 @@ onMounted(() => {
                     class="invitation-btn font-weight-bold text-none" :class="{ 'fade-in': isMounted }">Kirim
                     Ucapan
                     RSVP</VBtn>
+                    <img width="150px" class="photo-corner" :src="photo" alt="topright"
+                    :class="{ 'fade-in': isMounted }" /> 
             </div>
-            <img width="150px" class="photo-corner" :src="photo" alt="topright"
-            :class="{ 'fade-in': isMounted }" /> 
+  
             <img width="300px" class="box-image" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
         </VContainer>
     </Frame>
@@ -63,8 +64,9 @@ onMounted(() => {
 }
 
 .photo-corner {
-    margin-top: 20%;
-    margin-left: -25%;
+    z-index: 99999999;
+    bottom: -35%;
+    left: -60%;
     position: absolute;
     rotate: -10deg;
 }
