@@ -48,6 +48,11 @@ onMounted(() => {
                     Jl. Inspeksi Kalimalang No.1, Wangunharja, Kec. Cikarang Utara, Kabupaten Bekasi, Jawa Barat 17530
                 </span>
                 <span style="font-size: 14px; color: black"> Tlp. 0822-1568-7899</span>
+                <span style="font-size: 12px; color: black" class="my-1"> *Mohon infokan ke nomor telfon diatas apabila
+                    mengirim
+                    paket
+                    ke alamat tersebut</span>
+
             </VCard>
 
 

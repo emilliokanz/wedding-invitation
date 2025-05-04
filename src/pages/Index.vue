@@ -9,7 +9,8 @@ import thanks from '@/views/thanks.vue';
 import virtualGift from '@/views/virtual-gift.vue';
 import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
-import { mdiCharity, mdiClockTimeTwo, mdiEmailNewsletter, mdiGiftOutline, mdiMapMarker, mdiMessageTextOutline, mdiTextBoxOutline } from '@mdi/js';
+import dresscode from '@/views/dresscode.vue';
+import { mdiCharity, mdiClockTimeTwo, mdiEmailNewsletter, mdiGiftOutline, mdiMapMarker, mdiMessageTextOutline, mdiTextBoxOutline, mdiTshirtCrewOutline } from '@mdi/js';
 
 // Define reactive state for animation
 const isMounted = ref(false);
@@ -24,6 +25,7 @@ const tabsHeader = [
     { icon: mdiMapMarker, title: "Location", component: location },
     { icon: mdiMessageTextOutline, title: "RSVP", component: rsvp },
     { icon: mdiGiftOutline, title: "Virtual Gift", component: virtualGift },
+    { icon: mdiTshirtCrewOutline, title: "Dress Code", component: dresscode },
     { icon: mdiCharity, title: "Thanks", component: thanks }
 ];
 
