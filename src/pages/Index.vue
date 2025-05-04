@@ -66,7 +66,7 @@ onMounted(() => {
             down: () => handleSwipe('down')
         }" :image="background" class="flex-column align-center justify-center text-center phone-container"
             width="100vw">
-            <audio ref="audio" loop autoplay>
+            <audio ref="audio" preload="metadata" loop autoplay>
                 <source
                     src="https://dn720307.ca.archive.org/0/items/elvis-presley-cant-help-falling-in-love-audio_202106/elvis-presley-cant-help-falling-in-love-audio.mp3"
                     type="audio/mpeg">

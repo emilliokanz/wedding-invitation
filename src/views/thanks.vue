@@ -2,9 +2,9 @@
 import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
 import boxImage from '@/assets/box.svg';
+import photo from '@/assets/photo-middle.png';
 import thanks from '@/assets/thanks.png';
 import Frame from '@/layout/Frame.vue';
-import photo from '@/assets/photo-middle.png'
 // Define reactive state for animation
 const isMounted = ref(false);
 
@@ -24,7 +24,7 @@ onMounted(() => {
         <VContainer class="full-height d-flex flex-column align-center justify-center text-center" fluid>
 
             <img width="300px" class="box-image" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
-          
+
 
             <div class="d-flex flex-column intro-text mb-5 mt-1" style="max-width: 250px;"
                 :class="{ 'fade-in': isMounted }">
@@ -34,7 +34,8 @@ onMounted(() => {
             </div>
 
             <img width="300px" :src="thanks" alt="topright" class="name-text" :class="{ 'fade-in': isMounted }" />
-            <img width="160px" style="z-index: 99999999;" :src="photo" alt="couple-photo" class="name-text" :class="{ 'fade-in': isMounted }" />
+            <img width="160px" style="z-index: 99999999; margin-top: -3%;" :src="photo" alt="couple-photo"
+                :class="{ 'fade-in': isMounted }" />
 
         </VContainer>
     </Frame>
