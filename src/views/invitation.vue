@@ -37,7 +37,7 @@ const containerWidth = computed(() => {
 
             <VCard style="background-color: transparent; z-index: 9;"
                 class="d-flex flex-column intro-text py-5 mt-10 px-5" :class="{ 'fade-in': isMounted }">
-                <span style="font-size: 14px; color: grey" class="my-2">Tanpa mengurangi rasa hormat, perkenalkan kami
+                <span style="font-size: 14px; color: grey" class="my-2">Tanpa mengurangi rasa hormat, perkenankan kami
                 </span>
                 <span style="font-size: 14px; color: grey" class="my-2">mengundang Bapak/Ibu/Saudara/i, untuk
                     menghadiri</span>
