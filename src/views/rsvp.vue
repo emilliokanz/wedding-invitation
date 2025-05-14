@@ -13,11 +13,12 @@ const isMounted = ref(false);
 
 const {mobile} = useDisplay()
 
-const emits = defineEmits(['isOpen'])
+const emits = defineEmits(['openMessages'])
 
-const openInvitation = () => {
-    emits('isOpen')
+const openMessages = () => {
+    emits('openMessages')
 }
+
 
 // Trigger animation after component is mounted
 onMounted(() => {
@@ -38,9 +39,9 @@ onMounted(() => {
                 <span style="font-size: 16px; color: grey" class="font-weight-100 mt-5">Kirim ucapan untuk
                     mempelai</span>
                 <span style="font-size: 16px; color: grey" class="font-weight-100">dan konfirmasi kehadiran</span>
-                <VBtn @click="openInvitation" rounded="xl" color="#b58e5e"
+                <VBtn @click="openMessages" rounded="xl" color="#b58e5e"
                     class="invitation-btn font-weight-bold text-none" :class="{ 'fade-in': isMounted }">Kirim
-                    Ucapan
+                    Ucapan &
                     RSVP</VBtn>
                 <img v-if="!mobile" width="150px" class="photo-corner" :src="photo" alt="topright"
                     :class="{ 'fade-in': isMounted }" /> 
@@ -84,11 +85,9 @@ onMounted(() => {
     position: absolute;
 }
 
-
 .invitation-btn {
     margin-top: 20px;
     z-index: 99999;
-
 }
 
 .fade-in {

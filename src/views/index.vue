@@ -7,6 +7,7 @@ import opening from './opening.vue';
 import rsvp from './rsvp.vue';
 import thanks from './thanks.vue';
 import virtualGift from './virtual-gift.vue';
+import messages from './messages.vue';
 
 
 
@@ -45,6 +46,11 @@ const tabsHeader = [
         icon: mdiMessageTextOutline,
         title: "RSVP",
         component: rsvp
+    },
+    {
+        icon: mdiMessageTextOutline,
+        title: "Messages",
+        component: messages
     },
     {
         icon: mdiGiftOutline,

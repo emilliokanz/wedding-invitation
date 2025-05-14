@@ -7,6 +7,8 @@ import opening from '@/views/opening.vue';
 import rsvp from '@/views/rsvp.vue';
 import thanks from '@/views/thanks.vue';
 import virtualGift from '@/views/virtual-gift.vue';
+import messages from '@/views/messages.vue';
+
 import { onMounted, ref } from 'vue'; // Import onMounted and ref
 
 import dresscode from '@/views/dresscode.vue';
@@ -24,6 +26,7 @@ const tabsHeader = [
     { icon: mdiClockTimeTwo, title: "Akad", component: akad },
     { icon: mdiMapMarker, title: "Location", component: location },
     { icon: mdiMessageTextOutline, title: "RSVP", component: rsvp },
+    { icon: mdiMessageTextOutline, title: "Messages", component: messages },
     { icon: mdiGiftOutline, title: "Virtual Gift", component: virtualGift },
     { icon: mdiTshirtCrewOutline, title: "Dress Code", component: dresscode },
     { icon: mdiCharity, title: "Thanks", component: thanks }
@@ -36,6 +39,10 @@ const handleIsOpen = () => {
 
 const handleOpenLocation = () => {
     tabs.value = 3;
+};
+
+const handleOpenMessages = () => {
+    tabs.value = 5;
 };
 
 // Handle swipe left and right
@@ -84,7 +91,7 @@ onMounted(() => {
             </v-tabs>
 
             <div v-for="(tab, index) in tabsHeader" :key="index" :value="index">
-                <component @open-location="handleOpenLocation" @is-open="handleIsOpen" v-if="tabs == index"
+                <component @open-location="handleOpenLocation" @open-messages="handleOpenMessages" @is-open="handleIsOpen" v-if="tabs == index"
                     :is="tab.component" />
             </div>
         </VCard>
