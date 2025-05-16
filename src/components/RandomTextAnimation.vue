@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, computed, onUnmounted } from 'vue';
 
 // Props for customization
 const props = defineProps({
   words: {
-    type: Array,
+    type: Array<string>,
     default: () => ['Selamat', 'Bahagia', 'Cinta', 'Sayang', 'Kasih', 'Setia', 'Bersama', 'Selamanya', 'Kebahagiaan', 'Pernikahan']
   },
   baseDelay: {
@@ -18,18 +18,18 @@ const props = defineProps({
 });
 
 // Generate random positions for each word
-const textElements = ref([]);
-let repositionTimer = null;
+const textElements = ref<any>([]);
+let repositionTimer : any = null;
 
 // Generate a random position for a text element
-const generateRandomPosition = (text, fontSize) => {
+const generateRandomPosition = (text: string, fontSize: number) => {
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
-  
+
   // Calculate position to avoid going off-screen (considering text size)
   const maxX = windowWidth - (text.length * fontSize * 0.6);
   const maxY = windowHeight - fontSize;
-  
+
   return {
     x: Math.max(0, Math.floor(Math.random() * maxX)),
     y: Math.max(30, Math.floor(Math.random() * maxY))
@@ -41,17 +41,17 @@ const createTextElements = () => {
   textElements.value = [];
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
-  
+
   // Create text elements with random positions and delays
-  for (let i = 0; i < props.words.length; i++) {
+  props.words.forEach((text) => {
     const fontSize = Math.floor(Math.random() * 6) + 12; // 12px to 18px
-    
-    const position = generateRandomPosition(randomWord, fontSize);
+
+    const position = generateRandomPosition(text, fontSize);
     const opacity = (Math.random() * 0.5) + 0.2; // 0.2 to 0.7
-    const delay = props.baseDelay * i;
-    
+    const delay = props.baseDelay * props.words.length;
+
     textElements.value.push({
-      text: i,
+      text: text,
       fontSize,
       style: {
         position: 'absolute',
@@ -68,8 +68,9 @@ const createTextElements = () => {
       opacity,
       delay
     });
-  }
-  
+  })
+
+
   // Trigger animations with staggered timing
   textElements.value.forEach((el, index) => {
     setTimeout(() => {
@@ -83,18 +84,18 @@ const repositionTexts = () => {
   textElements.value.forEach((el, index) => {
     // Get new random position
     const position = generateRandomPosition(el.text, el.fontSize);
-    
+
     // Create a new word if desired (uncommenting the line below will also change the word)
     // el.text = props.words[Math.floor(Math.random() * props.words.length)];
-    
+
     // Apply fade out transition
     el.style.opacity = 0;
-    
+
     // After fading out, update position and fade back in
     setTimeout(() => {
       el.style.left = `${position.x}px`;
       el.style.top = `${position.y}px`;
-      
+
       // Small delay before fading back in
       setTimeout(() => {
         el.style.opacity = el.opacity;
@@ -131,12 +132,7 @@ onUnmounted(() => {
 
 <template>
   <div class="random-text-container">
-    <div 
-      v-for="(element, index) in textElements" 
-      :key="index"
-      :style="element.style"
-      class="text-element"
-    >
+    <div v-for="(element, index) in textElements" :key="index" :style="element.style" class="text-element">
       {{ element.text }}
     </div>
   </div>
@@ -149,7 +145,8 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* So clicks pass through */
+  pointer-events: none;
+  /* So clicks pass through */
   overflow: hidden;
   z-index: 1;
 }
