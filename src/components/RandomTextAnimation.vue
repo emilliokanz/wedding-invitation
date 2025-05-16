@@ -72,7 +72,7 @@ const createTextElements = () => {
 
 
   // Trigger animations with staggered timing
-  textElements.value.forEach((el, index) => {
+  textElements.value.forEach((el: any, index: number) => {
     setTimeout(() => {
       el.style.opacity = el.opacity;
     }, el.delay);
@@ -81,7 +81,7 @@ const createTextElements = () => {
 
 // Reposition text elements
 const repositionTexts = () => {
-  textElements.value.forEach((el, index) => {
+  textElements.value.forEach((el: any, index: number) => {
     // Get new random position
     const position = generateRandomPosition(el.text, el.fontSize);
 
