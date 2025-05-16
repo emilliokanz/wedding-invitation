@@ -7,10 +7,6 @@ const props = defineProps({
     type: Array,
     default: () => ['Selamat', 'Bahagia', 'Cinta', 'Sayang', 'Kasih', 'Setia', 'Bersama', 'Selamanya', 'Kebahagiaan', 'Pernikahan']
   },
-  count: {
-    type: Number,
-    default: 15
-  },
   baseDelay: {
     type: Number,
     default: 100 // ms between each word appearance
@@ -47,8 +43,7 @@ const createTextElements = () => {
   const windowHeight = window.innerHeight;
   
   // Create text elements with random positions and delays
-  for (let i = 0; i < props.count; i++) {
-    const randomWord = props.words[Math.floor(Math.random() * props.words.length)];
+  for (let i = 0; i < props.words.length; i++) {
     const fontSize = Math.floor(Math.random() * 6) + 12; // 12px to 18px
     
     const position = generateRandomPosition(randomWord, fontSize);
@@ -56,7 +51,7 @@ const createTextElements = () => {
     const delay = props.baseDelay * i;
     
     textElements.value.push({
-      text: randomWord,
+      text: i,
       fontSize,
       style: {
         position: 'absolute',
