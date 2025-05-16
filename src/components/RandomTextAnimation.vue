@@ -47,7 +47,7 @@ const createTextElements = () => {
     const fontSize = Math.floor(Math.random() * 6) + 12; // 12px to 18px
 
     const position = generateRandomPosition(text, fontSize);
-    const opacity = (Math.random() * 0.5) + 0.2; // 0.2 to 0.7
+    const opacity = 1; // 0.2 to 0.7
     const delay = props.baseDelay * props.words.length;
 
     textElements.value.push({
