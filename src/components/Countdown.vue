@@ -52,9 +52,11 @@ onMounted(() => {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: black;
 }
 
 .countdown-item {
     text-align: center;
+        color: black;
 }
 </style>
