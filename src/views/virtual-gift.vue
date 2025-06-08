@@ -24,31 +24,31 @@ onMounted(() => {
 
             <VCard style="background-color: transparent; z-index: 99999;" class="d-flex flex-column intro-text px-5"
                 :class="{ 'fade-in': isMounted }">
-                <span style="font-size: 14px; color: black" class="my-1">Kehadiran dan doa restu Anda sudah merupakan
+                <span style="font-size: 14px; color: grey" class="my-1">Kehadiran dan doa restu Anda sudah merupakan
                 </span>
-                <span style="font-size: 14px; color: black" class="my-1">hadiah terindah bagi kami. Namun, jika
+                <span style="font-size: 14px; color: grey" class="my-1">hadiah terindah bagi kami. Namun, jika
                     berkenan,
                 </span>
-                <span style="font-size: 14px; color: black" class="my-1">Anda dapat memberikan hadiah secara
+                <span style="font-size: 14px; color: grey" class="my-1">Anda dapat memberikan hadiah secara
                     digital
                     melalui</span>
                 <!-- <h2 style="color: #b58e5e">Ailsa Blenda Chaesar Norman</h2> -->
                 <img width="200px" class="bca-text" :src="bca" alt="bca" :class="{ 'fade-in': isMounted }" />
-                <span style="font-size: 14px; color: black">8320547131 a/n Ailsa Blenda
+                <span style="font-size: 14px; color: grey">8320547131 a/n Ailsa Blenda
                     Chesar</span>
-                <span style="font-size: 14px; color: black">7772203945 a/n Emillio Kanz</span>
-                <span style="font-size: 14px; color: black" class="my-1">Atau</span>
+                <span style="font-size: 14px; color: grey">7772203945 a/n Emillio Kanz</span>
+                <span style="font-size: 14px; color: grey" class="my-1">Atau</span>
                 <!-- <h2 style="color: #b58e5e">Emillio Kanz</h2> -->
-                <span style="font-size: 14px; color: black">Ailsa Blenda Chaesar
+                <span style="font-size: 14px; color: grey">Ailsa Blenda Chaesar
                     Norman
                 </span>
 
-                <span style="font-size: 14px; color: black; max-width: 400px;">
+                <span style="font-size: 14px; color: grey; max-width: 400px;">
                     Apartemen Riverview.
                     Jl. Inspeksi Kalimalang No.1, Wangunharja, Kec. Cikarang Utara, Kabupaten Bekasi, Jawa Barat 17530
                 </span>
-                <span style="font-size: 14px; color: black"> Tlp. 0822-1568-7899</span>
-                <span style="font-size: 12px; color: black" class="my-1"> *Mohon infokan ke nomor telfon diatas apabila
+                <span style="font-size: 14px; color: grey"> Tlp. 0822-1568-7899</span>
+                <span style="font-size: 12px; color: grey" class="my-1"> *Mohon infokan ke nomor telfon diatas apabila
                     mengirim
                     paket
                     ke alamat tersebut</span>

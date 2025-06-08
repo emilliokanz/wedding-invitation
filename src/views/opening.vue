@@ -36,10 +36,10 @@ const invitee = computed(() => {
         <!-- Ensure the container takes full height and centers content vertically -->
         <VContainer class="d-flex flex-column align-center justify-center text-center full-height" fluid>
             <div style="z-index: 99;" class="d-flex flex-column intro-text ml-6" :class="{ 'fade-in': isMounted }">
-                <span class="font-weight-bold" style="font-size: 15px;">WE INVITE YOU </span>
+                <span class="font-weight-bold" style="font-size: 15px; color: grey">WE INVITE YOU </span>
                 <span style="color: #b58e5e;" class="font-weight-bold"> Yth. Bapak/Ibu/Saudara/i </span>
                 <span style="color: #b58e5e;" class="font-weight-bold"> {{ invitee }} </span>
-                <span class="font-weight-bold" style="font-size: 15px">TO CELEBRATE THE WEDDING OF</span>
+                <span class="font-weight-bold" style="font-size: 15px; color: grey">TO CELEBRATE THE WEDDING OF</span>
             </div>
             <img width=" 300px" :src="boxImage" alt="topright" :class="{ 'fade-in': isMounted }" />
             <img width="300px" :src="name" alt="topright" class="name-text" :class="{ 'fade-in': isMounted }" />
