@@ -57,7 +57,7 @@ const containerWidth = computed(() => {
 
                 <span style="font-size: 14px; color: grey" class="my-1 font-weight-bold">Putra Ketiga Bpk. Roy Ardian
                     Darwis</span>
-                <span style="font-size: 14px; color: grey" class="my-1 font-weight-bold">Ibu Susi Mardianingsih</span>
+                <span style="font-size: 14px; color: grey" class="my-1 font-weight-bold">Ibu Susi Zamar</span>
             </VCard>
         </VContainer>
     </Frame>
