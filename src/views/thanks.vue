@@ -28,7 +28,7 @@ onMounted(() => {
 
             <div class="d-flex flex-column intro-text mb-5 mt-1" style="max-width: 250px;"
                 :class="{ 'fade-in': isMounted }">
-                <span class="">Dengan penuh rasa syukur dan bahagia, kami mengucapkan terima kasih atas doa, kasih, dan
+                <span style="color: grey;">Dengan penuh rasa syukur dan bahagia, kami mengucapkan terima kasih atas doa, kasih, dan
                     kehadiran Anda dalam momen istimewa kami. Semoga kebahagiaan yang kami rasakan selalu
                     menyertai Anda. Sampai jumpa di hari bahagia kami! </span>
             </div>
